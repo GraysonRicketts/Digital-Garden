@@ -51,3 +51,10 @@ rm -rf app
 # copy your app over
 cp -R ../my-old-remix-app/app app
 ```
+
+## Tech used
+* Remix
+* Styling
+  * https://github.com/necolas/normalize.css
+  * http://getskeleton.com/
+  * 

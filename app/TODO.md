@@ -1,0 +1,10 @@
+- [ ] "writing section"
+  - [ ] use DB and pull blogs
+  - [ ] add tags (e.g. climbing, work, personal growth)
+  - [ ] dispaly tags on homepage
+  - [ ] add md component for panels (e.g. info, warning)
+  - [ ] move old writing over
+- [ ] deploy
+- [ ] SEO
+  - [ ] Add seo tags to writing
+  - [ ] Incorporate seo tags into page

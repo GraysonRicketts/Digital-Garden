@@ -4,12 +4,25 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration
+  ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
+import skeletonStyles from "~/styles/skeleton.css";
+import normalizeStyles from "~/styles/normalize.css";
+import rootStyles from "~/styles/root.css";
+import { Header } from "./template/Header";
+import { Footer } from "./template/Footer";
+
+export const links = () => {
+  return [
+    { rel: "stylesheet", href: normalizeStyles },
+    { rel: "stylesheet", href: skeletonStyles },
+    { rel: "stylesheet", href: rootStyles },
+  ];
+};
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: "Grayson's Digital Garden" };
 };
 
 export default function App() {
@@ -22,7 +35,11 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <Header />
+        <main className="container">
+          <Outlet />
+        </main>
+          <Footer />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
