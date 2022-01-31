@@ -1,10 +1,21 @@
-- [ ] "writing section"
-  - [ ] use DB and pull blogs
+- [ ] feature: blog
+  - [x] setup DB
+  - [ ] add blogs
+    - [x] add form to create post
+    - [x] add security / auth
+    - [ ] parse markdown
+    - [ ] create pages for posts
+    - [ ] save existing markdown to DB
   - [ ] add tags (e.g. climbing, work, personal growth)
   - [ ] dispaly tags on homepage
   - [ ] add md component for panels (e.g. info, warning)
   - [ ] move old writing over
-- [ ] deploy
-- [ ] SEO
+- [ ] hygiene: add linting and styling
+- [ ] mvp: deploy
+- [ ] feature: edit forms
+- [ ] feature: SEO
   - [ ] Add seo tags to writing
   - [ ] Incorporate seo tags into page
+- [ ] security: setup https
+- [ ] feature: credits section
+  - [ ] https://eckertalex.dev/credits
