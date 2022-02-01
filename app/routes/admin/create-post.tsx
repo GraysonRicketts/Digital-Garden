@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { ActionFunction, Form, useActionData, useTransition } from "remix";
 import invariant from "tiny-invariant";
 import { addPost } from "~/server/post";
@@ -24,16 +24,27 @@ export const action: ActionFunction = async ({request}): Promise<CodedError | nu
 export default function CreatePost() {
   const error = useActionData<CodedError>()
   const transition = useTransition();
+  const isAdding = transition.state === 'submitting' && transition.submission.formData.get('_action') === 'create';
+  
+  const formRef = useRef<HTMLFormElement>(null);
+  const slugRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!isAdding) {
+      formRef.current?.reset();
+      slugRef.current?.focus();
+    }
+  })
   
   return (
-    <Form method="post">
+    <Form ref={formRef} method="post">
       {error && <p>{error.code}: {error.message}</p>}
       <fieldset
         disabled={transition.state === "submitting"}
       >
       <p>
         <label htmlFor="slug">
-          Slug <br/> <input type="text" name="slug" required/>
+          Slug <br/> <input type="text" name="slug" required ref={slugRef}/>
         </label>
       </p>
       <p>
@@ -48,7 +59,7 @@ export default function CreatePost() {
       </p>
       </fieldset>
 
-      <button type="submit">{transition.state === "submitting" ? "Creating..." : "Create"}</button>
+      <button type="submit" disabled={isAdding} name="_action" value="create">{transition.state === "submitting" ? "Creating..." : "Create"}</button>
     </Form>
   );
 }
