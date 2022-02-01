@@ -25,3 +25,14 @@ export async function create(data: Post): Promise<Res<Post>> {
       };
     });
 }
+
+export async function findOne(id: string): Promise<Res<Post | null>> {
+  return db.post
+    .findUnique({ ...basePost, where: { id } })
+    .then((res) => {
+      return { data: res };
+    })
+    .catch((e) => {
+      return { error: { code: "fp1", message: "Erroring finding post" } };
+    });
+}

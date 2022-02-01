@@ -14,7 +14,5 @@ export async function addPost(
     };
   }
 
-  const p = await create(post);
-  console.info(p)
-  return p
+  return create(post);
 }
