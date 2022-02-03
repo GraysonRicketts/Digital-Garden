@@ -6,11 +6,15 @@
     - [x] display list of posts
     - [x] display single post
     - [ ] parse markdown
+      - [x] base parser
       - [ ] strip out front-matter
-      - [ ] save title and front-matter on upload
+        - [ ] add front-matter
+          - [x] tag
+          - [x] title
+      - [x] save title and front-matter on upload
     - [ ] create pages for posts
     - [ ] save existing markdown to DB
-  - [ ] add tags (e.g. climbing, work, personal growth)
+  - [x] add tags (e.g. climbing, work, personal growth)
   - [ ] dispaly tags on homepage
   - [ ] add md component for panels (e.g. info, warning)
   - [ ] move old writing over

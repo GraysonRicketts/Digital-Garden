@@ -7,7 +7,7 @@
 From your terminal:
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 This starts your app in development mode, rebuilding assets on file changes.
@@ -17,13 +17,13 @@ This starts your app in development mode, rebuilding assets on file changes.
 First, build your app for production:
 
 ```sh
-npm run build
+yarn build
 ```
 
 Then run the app in production mode:
 
 ```sh
-npm start
+yarn start
 ```
 
 Now you'll need to pick a host to deploy it to.
@@ -78,3 +78,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO server_us
 SET TIMEZONE='GMT';
 ```
    3. Make DB changes `yarn prisma migrate dev --name <name>`
+
+## Migrations
+`yarn prisma migrate dev --name <name>`

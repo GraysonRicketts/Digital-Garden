@@ -6,12 +6,31 @@ import { db } from "./db.server";
 const basePost = Prisma.validator<Prisma.PostArgs>()({
   select: {
     slug: true,
+    title: true,
     content: true,
+    tags: {
+      select: {
+        name: true
+      }
+    }
   },
 });
 export type Post = Prisma.PostGetPayload<typeof basePost>;
 
-export async function create(data: Post): Promise<Res<Post>> {
+export interface CreatePost {
+  title: string;
+  tags: string[];
+  slug: string;
+  content: string;
+}
+export async function create(post: CreatePost): Promise<Res<Post>> {
+  const data = {
+    ...post,
+    tags: {
+      create: post.tags.map(t => ({name: t}))
+    }
+  }
+
   return db.post
     .create({ ...basePost, data })
     .then((res: Post) => {
