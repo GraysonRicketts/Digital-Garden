@@ -10,9 +10,9 @@ const basePost = Prisma.validator<Prisma.PostArgs>()({
     content: true,
     tags: {
       select: {
-        name: true
-      }
-    }
+        name: true,
+      },
+    },
   },
 });
 export type Post = Prisma.PostGetPayload<typeof basePost>;
@@ -27,9 +27,9 @@ export async function create(post: CreatePost): Promise<Res<Post>> {
   const data = {
     ...post,
     tags: {
-      create: post.tags.map(t => ({name: t}))
-    }
-  }
+      create: post.tags.map((t) => ({ name: t })),
+    },
+  };
 
   return db.post
     .create({ ...basePost, data })
@@ -53,7 +53,7 @@ interface FindOneOptions {
 export function findOne(opts: FindOneOptions): Promise<Res<Post | null>> {
   const { id, slug } = opts;
   invariant(!id || !slug, "Expected either slug or id");
-  
+
   return db.post
     .findUnique({ ...basePost, where: { id, slug } })
     .then((res) => {

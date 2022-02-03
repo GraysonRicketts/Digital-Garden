@@ -10,7 +10,7 @@ export async function addPost(
       error: {
         code: "ap1",
         message: "Invalid authentication",
-      }
+      },
     };
   }
 
