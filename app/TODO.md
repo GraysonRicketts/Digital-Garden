@@ -6,6 +6,8 @@
     - [x] display list of posts
     - [x] display single post
     - [ ] parse markdown
+      - [ ] strip out front-matter
+      - [ ] save title and front-matter on upload
     - [ ] create pages for posts
     - [ ] save existing markdown to DB
   - [ ] add tags (e.g. climbing, work, personal growth)
@@ -21,3 +23,4 @@
 - [ ] security: setup https
 - [ ] feature: credits section
   - [ ] https://eckertalex.dev/credits
+- [ ] feature: read time
