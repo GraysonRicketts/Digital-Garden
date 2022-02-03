@@ -1,0 +1,37 @@
+- [ ] feature: blog
+  - [x] setup DB
+  - [ ] add blogs
+    - [x] add form to create post
+    - [x] add security / auth
+    - [x] display list of posts
+    - [x] display single post
+    - [ ] parse markdown
+      - [x] base parser
+      - [x] strip out front-matter
+        - [x] add front-matter
+          - [x] tag
+          - [x] title
+      - [x] save title and front-matter on upload
+    - [x] create pages for posts
+  - [x] add tags (e.g. climbing, work, personal growth)
+  - [x] see title of post
+- [ ] hygiene: add linting and styling
+- [ ] hygiene: add GitHub actions for testing and styling
+- [ ] mvp: deploy
+  - [ ] move old writing over
+- [ ] feature: tags
+  
+  - [ ] view tags on post
+  - [ ] search by tags
+- [ ] feature: replace article
+- [ ] feature: SEO
+  - [ ] Add seo tags to writing
+  - [ ] Incorporate seo tags into page
+- [ ] security: setup https
+- [ ] feature: credits section
+  - [ ] https://eckertalex.dev/credits
+- [ ] feature: read time
+- [ ] feature: panels
+  - [ ] warning
+  - [ ] info
+- [ ] feature: footnotes
