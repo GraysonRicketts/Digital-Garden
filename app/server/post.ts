@@ -1,4 +1,4 @@
-import { create, Post } from "~/db/post";
+import { create, findMany, findOne, Post } from "~/db/post";
 import { Res } from "~/util";
 
 export async function addPost(
@@ -15,4 +15,12 @@ export async function addPost(
   }
 
   return create(post);
+}
+
+export async function getPost(slug: string) {
+  return findOne({ slug });
+}
+
+export async function getManyPosts() {
+  return findMany();
 }

@@ -3,6 +3,8 @@
   - [ ] add blogs
     - [x] add form to create post
     - [x] add security / auth
+    - [x] display list of posts
+    - [x] display single post
     - [ ] parse markdown
     - [ ] create pages for posts
     - [ ] save existing markdown to DB
