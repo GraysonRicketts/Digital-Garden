@@ -1,4 +1,4 @@
-- [ ] feature: blog
+- [x] feature: blog
   - [x] setup DB
   - [ ] add blogs
     - [x] add form to create post

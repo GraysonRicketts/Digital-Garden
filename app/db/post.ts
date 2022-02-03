@@ -59,7 +59,7 @@ export function findOne(opts: FindOneOptions): Promise<Res<Post | null>> {
     .then((res) => {
       return { data: res };
     })
-    .catch((e) => {
+    .catch(() => {
       return { error: { code: "fp1", message: "Erroring finding post" } };
     });
 }
