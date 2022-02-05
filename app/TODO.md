@@ -15,7 +15,7 @@
     - [x] create pages for posts
   - [x] add tags (e.g. climbing, work, personal growth)
   - [x] see title of post
-- [ ] hygiene: add linting and styling
+- [x] hygiene: add linting and styling
 - [ ] hygiene: add GitHub actions for testing and styling
 - [ ] mvp: deploy
   - [ ] move old writing over
