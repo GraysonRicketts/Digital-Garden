@@ -4,7 +4,7 @@ import invariant from "tiny-invariant";
 import { Post } from "../../db/post";
 import { getPost } from "../../server/post";
 import { Res } from "../../util";
-import {marked} from 'marked';
+import { marked } from "marked";
 
 export const loader: LoaderFunction = ({ params }) => {
   invariant(params.slug, "expected params.slug");
@@ -16,16 +16,20 @@ const PostSlug: React.FC = () => {
   const { data, error } = post;
   const transition = useTransition();
 
-
   if (transition.state === "loading") {
-  } else if (data) {
+    return <p>Loading...</p>
+  } else if (error || !data) {
+    throw new Error(error?.message || 'No data');
+  } 
+  
   const htmlContent = marked(data.content);
 
-    return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-  } else if (error) {
-    return <p>Something went wrong, we're looking into it</p>;
-  }
-  throw new Error("Unexpected. Should either get error or data.");
+  return (
+    <div>
+      <h1>{data.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+    </div>
+  );
 };
 
 export default PostSlug;

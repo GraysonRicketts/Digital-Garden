@@ -2,22 +2,40 @@ import React, { useEffect, useRef } from "react";
 import { ActionFunction, Form, useActionData, useTransition } from "remix";
 import invariant from "tiny-invariant";
 import { addPost } from "~/server/post";
-import { Post } from "../../db/post";
 import { AppError, CodedError, Res } from "../../util";
+import fm from 'front-matter';
+
+type PostMarkdownAttributes = {
+  title: string;
+  tags: string;
+}
+
+function isValidPostAttributes(attributes: any): attributes is PostMarkdownAttributes {
+  return attributes.title && attributes.tags;
+}
 
 
 export const action: ActionFunction = async ({request}): Promise<CodedError | null> => {
   const formData = await request.formData();
-  
-  const slug = formData.get('slug');
-  const content = formData.get('content');
-  const password = formData.get('password');
 
+  const slug = formData.get('slug');
   invariant(typeof slug === 'string')
-  invariant(typeof content === 'string')
+  const password = formData.get('password');
   invariant(typeof password === 'string')
 
-  const { error } = await addPost({ slug, content}, password);
+  const md = formData.get('content');
+  invariant(typeof md === 'string')
+  
+  const frontMatter = fm(md);
+  invariant(isValidPostAttributes(frontMatter.attributes))
+  
+  const content = frontMatter.body;
+  
+  const title = frontMatter.attributes.title;
+  const unparsedTags =  frontMatter.attributes.tags;
+  const tags = unparsedTags.length ? unparsedTags.split(',') : [];
+
+  const { error } = await addPost({ slug, content, title, tags}, password);
   return error ? error : null;
 };
 

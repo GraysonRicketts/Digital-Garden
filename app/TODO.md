@@ -1,22 +1,36 @@
-- [ ] feature: blog
+- [x] feature: blog
   - [x] setup DB
-  - [ ] add blogs
+  - [x] add blogs
     - [x] add form to create post
     - [x] add security / auth
     - [x] display list of posts
     - [x] display single post
-    - [ ] parse markdown
-      - [ ] strip out front-matter
-      - [ ] save title and front-matter on upload
-    - [ ] create pages for posts
-    - [ ] save existing markdown to DB
-  - [ ] add tags (e.g. climbing, work, personal growth)
-  - [ ] dispaly tags on homepage
-  - [ ] add md component for panels (e.g. info, warning)
-  - [ ] move old writing over
-- [ ] hygiene: add linting and styling
+    - [x] parse markdown
+      - [x] base parser
+      - [x] strip out front-matter
+        - [x] add front-matter
+          - [x] tag
+          - [x] title
+      - [x] save title and front-matter on upload
+    - [x] create pages for posts
+  - [x] add tags (e.g. climbing, work, personal growth)
+  - [x] see title of post
+- [x] hygiene: add linting and styling
+- [x] hygiene: add GitHub actions for testing and styling
+- [x] chore: polish
+  - [x] Clean up home page
+  - [x] Clean up header
+  - [x] Clean up base writing page
+  - [x] Bug: Going from slug back-arrow to writing home page
+- [ ] hygiene: add error boundary
+  - [ ] App wide boundary
+  - [ ] Slug boundary
 - [ ] mvp: deploy
-- [ ] feature: edit forms
+  - [ ] move old writing over
+- [ ] feature: tags
+  - [ ] view tags on post
+  - [ ] search by tags
+- [ ] feature: replace article
 - [ ] feature: SEO
   - [ ] Add seo tags to writing
   - [ ] Incorporate seo tags into page
@@ -24,3 +38,8 @@
 - [ ] feature: credits section
   - [ ] https://eckertalex.dev/credits
 - [ ] feature: read time
+- [ ] feature: panels
+  - [ ] warning
+  - [ ] info
+- [ ] feature: footnotes
+- [ ] feature: dark mode

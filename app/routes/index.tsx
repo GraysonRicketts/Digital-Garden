@@ -1,19 +1,39 @@
-export default function Index() {
+import React from "react";
+import { Link, LoaderFunction, useLoaderData, useTransition } from "remix";
+import { Post } from "../db/post";
+import { getManyPosts } from "../server/post";
+
+export const loader: LoaderFunction = () => {
+  return getManyPosts({ isRecommended: true });
+};
+
+const Index: React.FC = () => {
+  const posts = useLoaderData<Post[]>();
+  const transition = useTransition();
+  const isLoadingData = transition.state === "loading";
+
   return (
     <div>
-      <h1>🏡 Grayson's digital garden</h1>
+      <h1>🏡 Grayson&apos;s digital garden</h1>
 
-      <p>Hi, I'm Grayson. I'm a software engineer and a climber.</p>
-      <p>This is where I share thoughts and projects I'm working on.</p>
+      <p>Hi, I&apos;m Grayson. This is where I write about topics that interest me.</p>
 
       <p>
         {" "}
-        If you're unfamiliar with what a digital garden is,&nbsp;
-        <a href="https://maggieappleton.com/garden-history" target="_blank">
+        If you&apos;re unfamiliar with what a digital garden is,&nbsp;
+        <a
+          href="https://maggieappleton.com/garden-history"
+          target="_blank"
+          rel="noreferrer"
+        >
           check out the original essay
         </a>{" "}
         on the concept from Maggie Appleton.{" "}
-        <a href="https://joelhooks.com/digital-garden" target="_blank">
+        <a
+          href="https://joelhooks.com/digital-garden"
+          target="_blank"
+          rel="noreferrer"
+        >
           {" "}
           This is also a good read
         </a>{" "}
@@ -22,17 +42,21 @@ export default function Index() {
 
       <div>
         <h5>My personal recommendations</h5>
-        <ul>
-          <li>thing 1</li>
-        </ul>
-      </div>
-
-      <div>
-        <h5>Topics</h5>
-        <ul>
-          {/* TODO: Add tags */}
-        </ul>
+        {isLoadingData ? (
+          <p>Loading...</p>
+        ) : (
+          <ul>
+            {posts &&
+              posts.map((p) => (
+                <li key={p.slug}>
+                  <Link to={`/posts/${p.slug}`}>{p.title}</Link>
+                </li>
+              ))}
+          </ul>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default Index;

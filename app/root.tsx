@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Links,
   LiveReload,
@@ -25,7 +26,7 @@ export const meta: MetaFunction = () => {
   return { title: "Grayson's Digital Garden" };
 };
 
-export default function App() {
+const App: React.FC = () => {
   return (
     <html lang="en">
       <head>
@@ -47,3 +48,5 @@ export default function App() {
     </html>
   );
 }
+
+export default App;

@@ -1,8 +1,15 @@
-import { create, findMany, findOne, Post } from "~/db/post";
+import {
+  create,
+  CreatePost,
+  findMany,
+  findOne,
+  FindOptions,
+  Post,
+} from "~/db/post";
 import { Res } from "~/util";
 
 export async function addPost(
-  post: Post,
+  post: CreatePost,
   password: string
 ): Promise<Res<Post>> {
   if (password !== process.env.PASSWORD) {
@@ -10,7 +17,7 @@ export async function addPost(
       error: {
         code: "ap1",
         message: "Invalid authentication",
-      }
+      },
     };
   }
 
@@ -21,6 +28,6 @@ export async function getPost(slug: string) {
   return findOne({ slug });
 }
 
-export async function getManyPosts() {
-  return findMany();
+export async function getManyPosts(opts?: FindOptions) {
+  return findMany(opts);
 }
