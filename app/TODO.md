@@ -22,10 +22,10 @@
   - [x] Clean up header
   - [x] Clean up base writing page
   - [x] Bug: Going from slug back-arrow to writing home page
-- [ ] hygiene: add error boundary
-  - [ ] App wide boundary
-  - [ ] Slug boundary
+- [x] hygiene: add error boundary
+  - [x] App wide boundary
 - [ ] mvp: deploy
+  - [ ] setup cd
   - [ ] move old writing over
 - [ ] feature: tags
   - [ ] view tags on post
