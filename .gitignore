@@ -1,10 +1,19 @@
+# Node
 node_modules
 coverage
 
+# Config artifacts
+.env
+
+# Build artifacts
 /.cache
 /build
 /public/build
-.env
+
 
 # Ignore accidental `npm install`
 package-lock.json
+
+# Netlify
+/netlify/functions/server/build
+/.netlify

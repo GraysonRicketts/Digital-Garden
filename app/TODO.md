@@ -25,7 +25,12 @@
 - [x] hygiene: add error boundary
   - [x] App wide boundary
 - [ ] mvp: deploy
-  - [ ] setup cd
+  - [x] choose deployer
+    - Architect seems cool because it's on AWs
+    - Heard good things about Netlify so going to try out
+  - [ ] setup netlify account
+  - [ ] get netlify working locally
+  - [ ] setup CD
   - [ ] move old writing over
 - [ ] feature: tags
   - [ ] view tags on post
