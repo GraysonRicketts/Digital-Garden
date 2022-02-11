@@ -1,0 +1,10 @@
+{
+    "firebase": {
+        "authDomain": "digital-garden-55eda.firebaseapp.com",
+        "projectId": "demo-digital-garden-55eda",
+        "storageBucket": "digital-garden-55eda.appspot.com",
+        "messagingSenderId": "803109673685",
+        "appId": "1:803109673685:web:9e0aa354b7d15e887e205c",
+        "measurementId": "G-F9KL3BBLMK"
+    }
+}

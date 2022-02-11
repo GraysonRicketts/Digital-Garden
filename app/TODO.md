@@ -24,6 +24,10 @@
   - [x] Bug: Going from slug back-arrow to writing home page
 - [x] hygiene: add error boundary
   - [x] App wide boundary
+- [ ] experiment: firebase
+  - [x] setup account
+  - [x] setup config
+  - [ ] store information
 - [ ] mvp: deploy
   - [ ] setup cd
   - [ ] move old writing over
