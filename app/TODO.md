@@ -41,9 +41,13 @@
 - [ ] security: setup https
 - [ ] feature: credits section
   - [ ] https://eckertalex.dev/credits
+  - [ ] https://nathanhumphrey.ca/posts/2021-12-13-remix-with-firebase-pt-2/ (firebase + remix)
 - [ ] feature: read time
 - [ ] feature: panels
   - [ ] warning
   - [ ] info
 - [ ] feature: footnotes
 - [ ] feature: dark mode
+- [ ] feature: what I've read
+  - [ ] link Goodreads
+  - [ ] link Articles
