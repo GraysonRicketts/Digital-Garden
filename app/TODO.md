@@ -27,7 +27,10 @@
 - [ ] experiment: firebase
   - [x] setup account
   - [x] setup config
-  - [ ] store information
+  - [ ] setup authorization
+  - [ ] update admin page to store auth
+  - [ ] update auth to store information
+  - [ ] use firebase to pull articles
 - [ ] mvp: deploy
   - [ ] setup cd
   - [ ] move old writing over

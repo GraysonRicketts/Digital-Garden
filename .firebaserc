@@ -1,6 +1,7 @@
 {
   "projects": {
     "production": "digital-garden-55eda",
-    "development": "demo-digital-garden-55eda"
+    "development": "demo-digital-garden-55eda",
+    "default": "digital-garden-55eda"
   }
 }
