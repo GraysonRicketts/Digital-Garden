@@ -8,3 +8,6 @@ coverage
 
 # Ignore accidental `npm install`
 package-lock.json
+
+# Firebase
+*-debug.log
