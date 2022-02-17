@@ -1,22 +1,16 @@
 import { Prisma } from "@prisma/client";
 import invariant from "tiny-invariant";
 import { Res } from "../util";
-import { db } from "./db.server";
 
-const basePost = Prisma.validator<Prisma.PostArgs>()({
-  select: {
-    slug: true,
-    title: true,
-    content: true,
-    isRecommended: true,
-    tags: {
-      select: {
-        name: true,
-      },
-    },
-  },
-});
-export type Post = Prisma.PostGetPayload<typeof basePost>;
+export type Post = {
+  title: string;
+  tags: {
+      name: string;
+  }[];
+  slug: string;
+  content: string;
+  isRecommended: boolean;
+}
 
 export interface CreatePost {
   title: string;
@@ -32,19 +26,7 @@ export async function create(post: CreatePost): Promise<Res<Post>> {
     },
   };
 
-  return db.post
-    .create({ ...basePost, data })
-    .then((res: Post) => {
-      return { data: res };
-    })
-    .catch((e) => {
-      return {
-        error: {
-          code: "cp1",
-          message: "Failed to create post" + `:${e}`,
-        },
-      };
-    });
+  return {data: {} as Post};
 }
 
 export interface FindOptions {
@@ -58,14 +40,7 @@ export function findOne(opts: FindOneOptions): Promise<Res<Post | null>> {
   const { id, slug } = opts;
   invariant(!id || !slug, "Expected either slug or id");
 
-  return db.post
-    .findUnique({ ...basePost, where: { id, slug } })
-    .then((res) => {
-      return { data: res };
-    })
-    .catch(() => {
-      return { error: { code: "fp1", message: "Erroring finding post" } };
-    });
+  return Promise.resolve({data: {} as Post});
 }
 
 export function findMany(opts?: FindOptions): Promise<Post[] | null> {
@@ -73,9 +48,5 @@ export function findMany(opts?: FindOptions): Promise<Post[] | null> {
   if (opts?.isRecommended) {
     constructedWhere.isRecommended = opts.isRecommended;
   }
-  return db.post.findMany({
-    ...basePost,
-    where: { ...constructedWhere },
-    orderBy: { createdAt: "desc" },
-  });
+  return Promise.resolve([])
 }
