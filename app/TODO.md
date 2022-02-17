@@ -28,9 +28,9 @@
   - [x] setup account
   - [x] setup config
   - [ ] setup authorization
-  - [ ] update admin page to store auth
-  - [ ] update auth to store information
-  - [ ] use firebase to pull articles
+    - [ ] add login page on admin
+  - [ ] save articles to firebase
+  - [ ] pull articles from firebase
 - [ ] mvp: deploy
   - [ ] setup cd
   - [ ] move old writing over

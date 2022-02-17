@@ -1,19 +1,22 @@
-import { FirebaseApp, FirebaseOptions, getApp, getApps, initializeApp } from 'firebase/app';
 import config from 'config';
 import invariant from 'tiny-invariant';
 import { getAuth } from 'firebase-admin/auth';
+import { initializeApp , getApp, getApps, AppOptions, applicationDefault } from 'firebase-admin/app'
 
-const firebaseConfig: FirebaseOptions = config.get('Firebase.config')
+const firebaseConfig: AppOptions = config.get('Firebase.config');
+const { projectId, databaseURL } = firebaseConfig;
 
 // Make sure all config are set or throw an error
-invariant(typeof firebaseConfig.authDomain === 'string' && firebaseConfig.authDomain.length !== 0)
-invariant(typeof firebaseConfig.projectId === 'string' && firebaseConfig.projectId.length !== 0)
-invariant(typeof firebaseConfig.storageBucket === 'string' && firebaseConfig.storageBucket.length !== 0)
-invariant(typeof firebaseConfig.messagingSenderId === 'string' && firebaseConfig.messagingSenderId.length !== 0)
-invariant(typeof firebaseConfig.appId === 'string' && firebaseConfig.appId.length !== 0)
-invariant(typeof firebaseConfig.measurementId === 'string' && firebaseConfig.measurementId.length !== 0)
+invariant(typeof projectId === 'string' && projectId.length !== 0)
+invariant(typeof databaseURL === 'string' && databaseURL.length !== 0)
 
-const app: FirebaseApp = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+let app = getApps.length > 0 ? getApp() : undefined;
+if (!app && process.env.NODE_ENV === 'development') {
+    app = initializeApp({ projectId, databaseURL })
+} else if (!app && process.env.NODE_ENV === 'production') {
+    app = initializeApp({ credential: applicationDefault()})
+}
+
 const auth = getAuth();
 
 export { app, auth };

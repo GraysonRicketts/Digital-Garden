@@ -1,4 +1,3 @@
-import { Prisma } from "@prisma/client";
 import invariant from "tiny-invariant";
 import { Res } from "../util";
 
@@ -44,9 +43,6 @@ export function findOne(opts: FindOneOptions): Promise<Res<Post | null>> {
 }
 
 export function findMany(opts?: FindOptions): Promise<Post[] | null> {
-  const constructedWhere: Prisma.PostWhereInput = {};
-  if (opts?.isRecommended) {
-    constructedWhere.isRecommended = opts.isRecommended;
-  }
+  
   return Promise.resolve([])
 }
