@@ -10,7 +10,7 @@ export type AppError = {
 };
 
 export type CodedError = {
-  code: string;
+  code: number;
   message: string;
 };
 

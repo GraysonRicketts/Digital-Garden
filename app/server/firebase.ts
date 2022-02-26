@@ -17,6 +17,4 @@ if (!app && process.env.NODE_ENV === 'development') {
     app = initializeApp({ credential: applicationDefault()})
 }
 
-const auth = getAuth();
-
-export { app, auth };
+export { app };
