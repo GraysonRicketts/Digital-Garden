@@ -10,3 +10,7 @@
   * Awesome way to have 
 * Awesome next.js blog to checkout
   * https://eckertalex.dev/blog
+* Styling
+  * https://github.com/necolas/normalize.css
+  * http://getskeleton.com/
+  * Tailwindcss

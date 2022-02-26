@@ -9,17 +9,13 @@ import {
   ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
-import skeletonStyles from "~/styles/skeleton.css";
-import normalizeStyles from "~/styles/normalize.css";
-import rootStyles from "~/styles/root.css";
+import styles from "~/tailwind.css";
 import { Header } from "./template/Header";
 import { Footer } from "./template/Footer";
 
 export const links = () => {
   return [
-    { rel: "stylesheet", href: normalizeStyles },
-    { rel: "stylesheet", href: skeletonStyles },
-    { rel: "stylesheet", href: rootStyles },
+    { rel: "stylesheet", href: styles },
   ];
 };
 

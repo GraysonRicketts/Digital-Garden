@@ -8,3 +8,6 @@ coverage
 
 # Ignore accidental `npm install`
 package-lock.json
+
+# Ignore generate tailwin file
+/app/tailwind.css
