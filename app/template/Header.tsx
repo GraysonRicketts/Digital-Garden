@@ -6,8 +6,6 @@ import darkModeIcon from "./icons/dark-mode.svg";
 export const Header: React.FC = () => {
   const linkClassNames = "rounded p-4 ring-gray-300 hover:ring-2";
 
-  const handleThemeToggle = () => {};
-
   return (
     <header className="flex justify-between border-b-2">
       <nav className="md:container py-6">
