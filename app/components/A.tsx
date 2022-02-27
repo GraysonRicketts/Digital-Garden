@@ -1,5 +1,5 @@
 import cn from "classnames";
-import React, { AnchorHTMLAttributes } from "react";
+import React from "react";
 
 const A: React.FC<React.HTMLProps<HTMLAnchorElement>> = ({
   children,

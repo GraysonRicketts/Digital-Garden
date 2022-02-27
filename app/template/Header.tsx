@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "remix";
+import { Link } from "remix/client";
 
 export const Header: React.FC = () => {
   const linkClassNames = 'rounded p-4 ring-gray-300 hover:ring-2'

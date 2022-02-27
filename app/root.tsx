@@ -1,14 +1,13 @@
 import React from "react";
 import {
-  ErrorBoundaryComponent,
   Links,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "remix";
-import type { MetaFunction } from "remix";
+} from "remix/client";
+import type { MetaFunction, ErrorBoundaryComponent } from "remix/server";
 import styles from "./tailwind.css";
 import rootStyles from "./root.css";
 import { Header } from "./template/Header";

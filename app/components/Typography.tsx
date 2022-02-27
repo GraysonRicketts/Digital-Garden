@@ -1,7 +1,4 @@
 import React from "react";
-import { useLoaderData } from "remix";
-import { Env, Schema } from "~/app-config/config.interface";
-import config from "~/app-config/config.server";
 
 export enum Type {
   H1 = "H1",
@@ -11,10 +8,6 @@ export enum Type {
   H5 = "H5",
   H6 = "H6",
   P = "P",
-}
-
-export async function loader<Schema>() {
-  return config;
 }
 
 interface Props {
@@ -45,9 +38,7 @@ const Typography: React.FC<Props> = ({ displayType = Type.P, htmlType = Type.P, 
     case Type.P:
       break;
     default:
-      const data = useLoaderData<Schema>();
-      console.info('system', data);
-      if (data.system.env === Env.DEV) {
+      if (process.env.NODE_ENV === 'development') {
         throw new Error(`Un-handled display type: ${displayType}`);
       }
   }

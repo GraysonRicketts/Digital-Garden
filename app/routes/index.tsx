@@ -4,7 +4,7 @@ import Typography, { Type } from "~/components/Typography";
 
 const Index: React.FC = () => {
   return (
-    <article className="space-y-4">
+    <article className="space-y-8">
       <Typography displayType={Type.H1} htmlType={Type.H1}>🏡 Grayson&apos;s digital garden</Typography>
       <Typography>
         Hi, I&apos;m Grayson. Welcome to my corner of the internet. Here, I
