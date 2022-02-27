@@ -9,12 +9,14 @@ import {
   ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
-import styles from "~/tailwind.css";
+import styles from "./tailwind.css";
+import rootStyles from "./root.css";
 import { Header } from "./template/Header";
 import { Footer } from "./template/Footer";
 
 export const links = () => {
   return [
+    { rel: "stylesheet", href: rootStyles },
     { rel: "stylesheet", href: styles },
   ];
 };
@@ -33,15 +35,19 @@ const Document: React.FC = ({ children }) => {
         <Links />
       </head>
       <body>
-        <Header />
-        <main className="container">
-          {children}
-          {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
-        </main>
-        <Footer />
-        <ScrollRestoration />
-        <Scripts />
-        {process.env.NODE_ENV === "development" && <LiveReload />}
+        <div className="h-full flex flex-col p-4">
+          <Header />
+          <main className="md:container mx-auto pt-10 grow flex flex-col">
+            <div className="grow">
+              {children}
+              {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
+            </div>
+            <Footer />
+          </main>
+          <ScrollRestoration />
+          <Scripts />
+          {process.env.NODE_ENV === "development" && <LiveReload />}
+        </div>
       </body>
     </html>
   );
@@ -61,9 +67,11 @@ const ErrorBoundary: ErrorBoundaryComponent = ({ error }: { error: Error }) => {
       <h1>Something went wrong</h1>
       <p>We&apos;re looking into it</p>
 
-      {process.env.NODE_ENV === "development" ? <div>
-        <pre>{error.stack}</pre>
-      </div> : null}
+      {process.env.NODE_ENV === "development" ? (
+        <div>
+          <pre>{error.stack}</pre>
+        </div>
+      ) : null}
     </Document>
   );
 };

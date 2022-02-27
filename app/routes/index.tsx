@@ -2,18 +2,18 @@ import React from "react";
 
 const Index: React.FC = () => {
   return (
-    <article >
+    <article>
       <h1>🏡 Grayson&apos;s digital garden</h1>
       <p>
-        Hi, I&apos;m Grayson. Welcome to my corner of the internet. Here,
-        I create and share things related to software engineering, climbing,
-        and life.
+        Hi, I&apos;m Grayson. Welcome to my corner of the internet. Here, I
+        create and share things related to software engineering, climbing, and
+        life.
       </p>
       <p>
-        Here, you will find a lot about software engineering: advice on
-        leading teams, technical topics, anecdotes. You can also find some
-        more general life and climbing things. Or, you can check out some of
-        what I&apos;m reading as well
+        Here, you will find a lot about software engineering: advice on leading
+        teams, technical topics, anecdotes. You can also find some more general
+        life and climbing things. Or, you can check out some of what I&apos;m
+        reading as well.
       </p>
       <p>
         I got the idea for my Digital Garden after
@@ -23,8 +23,8 @@ const Index: React.FC = () => {
           rel="noreferrer"
         >
           &nbsp;reading Joel Hooks&apos;s post
-        </a>.
-        I recommend reading
+        </a>
+        . I recommend reading
         <a
           href="https://maggieappleton.com/garden-history"
           target="_blank"
@@ -32,8 +32,8 @@ const Index: React.FC = () => {
         >
           &nbsp;the fantastic post that originated the Digital Garden movement.
         </a>
-        I&apos;m looking forward to how this site can grow and hope you
-        enjoy what you find.
+        I&apos;m looking forward to how this site can grow and hope you enjoy
+        what you find.
       </p>
 
       <p>
