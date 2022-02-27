@@ -5,7 +5,7 @@ import liImg from "~/template/icons/icons8-linkedin.svg";
 export const Footer: React.FC = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-10">
+    <footer className="mt-10 mb-1">
       <span className="flex items-center text-neutral-600	">
         <a
           href="https://github.com/GraysonRicketts"

@@ -35,7 +35,7 @@ const Document: React.FC = ({ children }) => {
         <Links />
       </head>
       <body>
-        <div className="h-full flex flex-col p-4">
+        <div className="h-full flex flex-col mx-4">
           <Header />
           <main className="md:container mx-auto pt-10 grow flex flex-col">
             <div className="grow">
