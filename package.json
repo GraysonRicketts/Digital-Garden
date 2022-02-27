@@ -3,9 +3,9 @@
   "name": "remix-app-template",
   "version": "0.0.1",
   "scripts": {
-    "build": "npm run build:css && remix build",
+    "build": "NODE_ENV=production npm run build:css && remix build",
     "build:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css --minify",
-    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev": "NODE_ENV=development concurrently \"npm run dev:css\" \"remix dev\"",
     "dev:css": "tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css --watch",
     "postinstall": "remix setup node",
     "start": "remix-serve build",

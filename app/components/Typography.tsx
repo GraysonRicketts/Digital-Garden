@@ -1,6 +1,7 @@
-import React, { Children } from "react";
-import { Env } from "~/config/config.interface";
-import config from "~/config/config.service";
+import React from "react";
+import { useLoaderData } from "remix";
+import { Env, Schema } from "~/app-config/config.interface";
+import config from "~/app-config/config.service";
 
 export enum Type {
   H1 = "H1",
@@ -12,25 +13,42 @@ export enum Type {
   P = "P",
 }
 
+export async function loader<Schema>() {
+  return config;
+}
+
 interface Props {
-  displayType?: Exclude<Type, "H4" | "H5" | "H6">;
+  displayType?: Type;
   htmlType?: Type;
 }
-const Typography: React.FC<Props> = ({ displayType, htmlType, children }) => {
+const Typography: React.FC<Props> = ({ displayType = Type.P, htmlType = Type.P, children }) => {
+
   let cnType = "text-base";
+  console.info('system', config);
   switch (displayType) {
     case Type.H1:
-      cnType = "text-2xl";
+      cnType = "text-5xl";
       break;
     case Type.H2:
-      cnType = "text-xl";
+      cnType = "text-4xl";
       break;
     case Type.H3:
+      cnType = "text-3xl";
+      break;
+    case Type.H4:
+      cnType = "text-2xl";
+      break;
+    case Type.H5:
+      cnType = "text-xl";
+      break;
+    case Type.H6:
       cnType = "text-lg";
       break;
     case Type.P:
+      break;
     default:
-      if (config.system.env === Env.DEV) {
+      const data = useLoaderData<Schema>();
+      if (data.system.env === Env.DEV) {
         throw new Error(`Un-handled display type: ${displayType}`);
       }
   }
