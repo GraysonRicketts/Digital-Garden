@@ -1,7 +1,7 @@
 import React from "react";
 import { useLoaderData } from "remix";
 import { Env, Schema } from "~/app-config/config.interface";
-import config from "~/app-config/config.service";
+import config from "~/app-config/config.server";
 
 export enum Type {
   H1 = "H1",
@@ -22,9 +22,7 @@ interface Props {
   htmlType?: Type;
 }
 const Typography: React.FC<Props> = ({ displayType = Type.P, htmlType = Type.P, children }) => {
-
   let cnType = "text-base";
-  console.info('system', config);
   switch (displayType) {
     case Type.H1:
       cnType = "text-5xl";
@@ -48,6 +46,7 @@ const Typography: React.FC<Props> = ({ displayType = Type.P, htmlType = Type.P, 
       break;
     default:
       const data = useLoaderData<Schema>();
+      console.info('system', data);
       if (data.system.env === Env.DEV) {
         throw new Error(`Un-handled display type: ${displayType}`);
       }

@@ -37,7 +37,7 @@ const Document: React.FC = ({ children }) => {
       <body>
         <div className="h-full flex flex-col mx-4">
           <Header />
-          <main className="md:container mx-auto pt-10 grow flex flex-col">
+          <main className="md:container mx-auto pt-10 grow flex flex-col md:max-w-3xl">
             <div className="grow">
               {children}
               {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
