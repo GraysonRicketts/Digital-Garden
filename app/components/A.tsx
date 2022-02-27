@@ -14,6 +14,10 @@ const A: React.FC<React.HTMLProps<HTMLAnchorElement>> = ({
     "hover:visited:text-indigo-900",
     "hover:text-sky-900",
     "hover:underline",
+    'dark:text-sky-200',
+    'dark:visited:text-indigo-200',
+    'dark:hover:visited:text-indigo-400',
+    'dark:hover:text-sky-400',
     propClassName
   );
 

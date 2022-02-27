@@ -1,4 +1,5 @@
 import React from "react";
+import cn from 'classnames';
 
 export enum Type {
   H1 = "H1",
@@ -13,8 +14,9 @@ export enum Type {
 interface Props {
   displayType?: Type;
   htmlType?: Type;
+  className?: string;
 }
-const Typography: React.FC<Props> = ({ displayType = Type.P, htmlType = Type.P, children }) => {
+const Typography: React.FC<Props> = ({ displayType = Type.P, htmlType = Type.P, className, children }) => {
   let cnType = "text-base";
   switch (displayType) {
     case Type.H1:
@@ -42,6 +44,8 @@ const Typography: React.FC<Props> = ({ displayType = Type.P, htmlType = Type.P, 
         throw new Error(`Un-handled display type: ${displayType}`);
       }
   }
+
+  cnType = cn(cnType, className);
 
   switch (htmlType) {
     case Type.H1:

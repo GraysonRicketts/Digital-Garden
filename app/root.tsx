@@ -12,6 +12,7 @@ import styles from "./tailwind.css";
 import rootStyles from "./root.css";
 import { Header } from "./template/Header";
 import { Footer } from "./template/Footer";
+import classNames from "classnames";
 
 export const links = () => {
   return [
@@ -25,18 +26,25 @@ export const meta: MetaFunction = () => {
 };
 
 const Document: React.FC = ({ children }) => {
+  const appClasses = classNames(
+    "h-screen",
+    "bg-white",
+    'text-slate-900',
+
+  );
+
   return (
-    <html lang="en">
+    <html lang="en" className={appClasses}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
-        <div className="h-full flex flex-col mx-4">
+      <body className="h-full flex flex-col px-4 dark:bg-slate-900
+    dark:text-slate-300">
           <Header />
-          <main className="md:container mx-auto pt-10 grow flex flex-col md:max-w-3xl">
+          <main className="mx-auto pt-10 grow flex flex-col md:container md:max-w-3xl">
             <div className="grow">
               {children}
               {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
@@ -46,7 +54,6 @@ const Document: React.FC = ({ children }) => {
           <ScrollRestoration />
           <Scripts />
           {process.env.NODE_ENV === "development" && <LiveReload />}
-        </div>
       </body>
     </html>
   );

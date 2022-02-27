@@ -34,7 +34,7 @@ const Index: React.FC = () => {
         >
           the fantastic post that originated the Digital Garden movement.
         </A>
-        I&apos;m looking forward to how this site can grow and hope you enjoy
+        &nbsp;I&apos;m looking forward to how this site can grow and hope you enjoy
         what you find.
       </Typography>
 
