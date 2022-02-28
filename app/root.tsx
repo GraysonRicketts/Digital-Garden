@@ -13,6 +13,9 @@ import rootStyles from "./root.css";
 import { Header } from "./template/Header";
 import { Footer } from "./template/Footer";
 import classNames from "classnames";
+import { ErrorBoundaryTemplate } from "./template/ErrorBoundary.template";
+import { CatchBoundaryComponent } from "@remix-run/server-runtime/routeModules";
+import { CatchBoundaryTemplate } from "./template/CatchBoundary.template";
 
 export const links = () => {
   return [
@@ -70,17 +73,18 @@ const App: React.FC = () => {
 const ErrorBoundary: ErrorBoundaryComponent = ({ error }: { error: Error }) => {
   return (
     <Document>
-      <h1>Something went wrong</h1>
-      <p>We&apos;re looking into it</p>
+      <ErrorBoundaryTemplate error={error}/>
+    </Document>
+  );
+};
 
-      {process.env.NODE_ENV === "development" ? (
-        <div>
-          <pre>{error.stack}</pre>
-        </div>
-      ) : null}
+const CatchBoundary: CatchBoundaryComponent = () => {
+  return (
+    <Document>
+      <CatchBoundaryTemplate />
     </Document>
   );
 };
 
 export default App;
-export { ErrorBoundary };
+export { ErrorBoundary, CatchBoundary };

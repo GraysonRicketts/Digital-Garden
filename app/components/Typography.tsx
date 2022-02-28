@@ -20,7 +20,7 @@ const Typography: React.FC<Props> = ({ displayType = Type.P, htmlType = Type.P, 
   let cnType = "text-base";
   switch (displayType) {
     case Type.H1:
-      cnType = "text-5xl";
+      cnType = "text-5xl mb-8";
       break;
     case Type.H2:
       cnType = "text-4xl";
